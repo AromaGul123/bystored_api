@@ -1,0 +1,1718 @@
+{
+	"info": {
+		"_postman_id": "76ae23fa-3d16-423b-93ff-8e8fff7ce7b8",
+		"name": "Bystored",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Asset Type",
+			"description": null,
+			"item": [
+				{
+					"name": "Asset Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3aeb7633-b7b5-4493-942a-d486fbd05acd",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"User Id must not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Name should not be empty\"] = jsonData.responseBody.name !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"//Message ",
+									"// pm.test(\"Category created!\", function() {",
+									"//     pm.expect(pm.response.text()).to.include(\"Category created!\");",
+									"// });"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}assetType/storage?token={{token}}\n",
+							"host": [
+								"{{URL}}assetType"
+							],
+							"path": [
+								"storage"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						},
+						"description": "Gets all storage asset types."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"description": null,
+			"item": [
+				{
+					"name": "User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dcf67020-6b16-421f-ac04-9c13104f88d7",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"",
+									"// tests[\"Total count should be 3365\"] = jsonData.responseBody.totalCount === 3365;",
+									"tests[\"Total count must not be empty\"] = jsonData.responseBody.totalCount !== \"\";",
+									"tests[\"User Id must not be empty\"] = jsonData.responseBody.totalCount.id !== \"\";",
+									"tests[\"Email should not be empty\"] = jsonData.responseBody.totalCount.email !== \"\";",
+									"tests[\"First Name should not be empty\"] = jsonData.responseBody.totalCount.firstName !== \"\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}user?pageNumber=10&pageSize=10&token={{token}}",
+							"host": [
+								"{{URL}}user"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "10"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Space Utilization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d2126ce4-ca4e-4d8c-82ca-73a2ca060e1a",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}user/spaceUtilization?pageNumber=1&pageSize=1&orderId=1&userId=1&userEmail=aroma.gul%40venturedive.com&token={{token}}",
+							"host": [
+								"{{URL}}user"
+							],
+							"path": [
+								"spaceUtilization"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "orderId",
+									"value": "1"
+								},
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "userEmail",
+									"value": "aroma.gul%40venturedive.com"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User {id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bbd817c5-2ec0-458c-baa5-dac70b5845e4",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"User Id must not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Email should not be empty\"] = jsonData.responseBody.email !== \"\";",
+									"tests[\"First Name should not be empty\"] = jsonData.responseBody.firstName !== \"\";",
+									"tests[\"Phone number should not be empty\"] = jsonData.responseBody.phone !== \"\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}user/34?token={{token}}\n",
+							"host": [
+								"{{URL}}user"
+							],
+							"path": [
+								"34"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a27bff9a-128d-42b3-a955-c3193182dbc3",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 5, \"No such User Found.\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}user/validateEmail?email=aroma.gul+4%40venturedive.com&token={{token}}",
+							"host": [
+								"{{URL}}user"
+							],
+							"path": [
+								"validateEmail"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "aroma.gul+4%40venturedive.com"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Quote Business Logic Service",
+			"description": null,
+			"item": [
+				{
+					"name": "Fetch Quotes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5fa514f0-8b7c-48da-847b-9b1c39de7350",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}userQuote/fetchQuotes?token={{token}}\n",
+							"host": [
+								"{{URL}}userQuote"
+							],
+							"path": [
+								"fetchQuotes"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Storage Plan",
+			"description": null,
+			"item": [
+				{
+					"name": "Plans",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3ed970e0-4309-4770-8148-87dcee3bc3d1",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"//tests[\"Total count should be 3365\"] = jsonData.responseBody.totalCount === 3365;",
+									"//tests[\"Total count must not be empty\"] = jsonData.responseBody.totalCount !== \"\";",
+									"tests[\"User Id must not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Name should not be empty\"] = jsonData.responseBody.name !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";",
+									"tests[\"Description should not be empty\"] = jsonData.responseBody.description !== \"\";",
+									"tests[\"Packing Text should not be empty\"] = jsonData.responseBody.packingText !== \"\";",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}plans?token={{token}}\n",
+							"host": [
+								"{{URL}}plans"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Timeslot",
+			"description": null,
+			"item": [
+				{
+					"name": "Timeslots",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e400869a-1f69-4d83-9789-efb8910186f7",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"",
+									"tests[\"Timeslot Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"TimeSlot Identifier should not be empty\"] = jsonData.responseBody.timeSlotIdentifier !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";",
+									"tests[\"Start Time should not be empty\"] = jsonData.responseBody.startTime !== \"\";",
+									"tests[\"End Time should not be empty\"] = jsonData.responseBody.endTime !== \"\";",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}timeslots?token={{token}}\n",
+							"host": [
+								"{{URL}}timeslots"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Subscription For Today's Return Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f2355dc6-7b85-4194-82a6-3b78c92f1d25",
+								"type": "text/javascript",
+								"exec": [
+									"// pm.test(\"Status code is 200\", function () {",
+									"//     pm.response.to.have.status(200);",
+									"// });",
+									"",
+									"",
+									"// //Message ",
+									"// pm.test(\"Is message correct?\", function() {",
+									"//     pm.expect(pm.response.text()).to.include(\"Success\");",
+									"// });",
+									"",
+									"",
+									"// pm.test(\"Is message correct?\", function() {",
+									"//     pm.expect(pm.response.text()).to.include(\"Not Succesful\");",
+									"// });",
+									"var data1 = [false, 1, \"Success\"];",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}timeslots/cancelSubscriptionForTodaysReturnJob?token={{token}}\n",
+							"host": [
+								"{{URL}}timeslots"
+							],
+							"path": [
+								"cancelSubscriptionForTodaysReturnJob"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Timeslots_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "73711e7a-1ba7-4d8d-9520-e235c5bb789d",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Booked Timeslot Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";",
+									"tests[\"Start Time should not be empty\"] = jsonData.responseBody.startTime !== \"\";",
+									"tests[\"End Time should not be empty\"] = jsonData.responseBody.endTime !== \"\";",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}timeslots/id?id=4&token={{token}}",
+							"host": [
+								"{{URL}}timeslots"
+							],
+							"path": [
+								"id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Timeslot Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f77cfca-c140-47ea-ae51-d39051610f49",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Timeslot Type Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Booking Type should not be empty\"] = jsonData.responseBody.key !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}timeslotstypes?token={{token}}\n",
+							"host": [
+								"{{URL}}timeslotstypes"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Insurance",
+			"description": null,
+			"item": [
+				{
+					"name": "Insurance Plans",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c3f6324e-dc38-48bf-aeb0-a11d76ed0600",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Name should not be empty\"] = jsonData.responseBody.name !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";",
+									"tests[\"Coverage should not be empty\"] = jsonData.responseBody.coverage !== \"\";",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}insurancePlans?token={{token}}\n",
+							"host": [
+								"{{URL}}insurancePlans"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Status Type",
+			"description": null,
+			"item": [
+				{
+					"name": "Status Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9deae3d9-8448-43fa-bfe7-5f477bc52f5c",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Status Id should not be empty\"] = jsonData.responseBody.statusIdentifier !== \"\";",
+									"tests[\"Table Id should not be empty\"] = jsonData.responseBody.tableIdentifier !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}statusTypes?token={{token}}\n",
+							"host": [
+								"{{URL}}statusTypes"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Unavailability",
+			"description": "",
+			"item": [
+				{
+					"name": "Service Unavailability {id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3617afa3-230a-4820-a45d-adda42002c3a",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Service Type should not be empty\"] = jsonData.responseBody.key !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}serviceUnavailability/1?token={{token}}\n",
+							"host": [
+								"{{URL}}serviceUnavailability"
+							],
+							"path": [
+								"1"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service Unavailability",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b9fc9e28-5753-40d1-9dad-d5d8f08f16d0",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Service Type should not be empty\"] = jsonData.responseBody.key !== \"\";",
+									"tests[\"Display Name should not be empty\"] = jsonData.responseBody.displayName !== \"\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}serviceUnavailability?from=2016-05-05&to=2017-05-05&token={{token}}\n",
+							"host": [
+								"{{URL}}serviceUnavailability"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2016-05-05"
+								},
+								{
+									"key": "to",
+									"value": "2017-05-05"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Financial Info",
+			"description": "",
+			"item": [
+				{
+					"name": "Financial Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e48daf5b-9f72-4a3f-805e-146dd044db86",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}financialInfo?pageNumber=10&pageSize=10&orderId=1&bookingDateFrom=2017-05-05&bookingDateTo=2018-05-05&jobDateFrom=2017-05-05&jobDateTo=2018-05-05&token={{token}}\n",
+							"host": [
+								"{{URL}}financialInfo"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "10"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "orderId",
+									"value": "1"
+								},
+								{
+									"key": "bookingDateFrom",
+									"value": "2017-05-05"
+								},
+								{
+									"key": "bookingDateTo",
+									"value": "2018-05-05"
+								},
+								{
+									"key": "jobDateFrom",
+									"value": "2017-05-05"
+								},
+								{
+									"key": "jobDateTo",
+									"value": "2018-05-05"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d1369276-c9f9-45bc-af62-b1ce1a7b6ec1",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}financialInfo/booking?bookingId=2345&token={{token}}\n",
+							"host": [
+								"{{URL}}financialInfo"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "bookingId",
+									"value": "2345"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "349fcc70-0488-4ad6-bec5-df5fced03218",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}financialInfo/order?orderId=3637&token={{token}}\n",
+							"host": [
+								"{{URL}}financialInfo"
+							],
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": "3637"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ec83bde-4439-4a06-bb0d-7d5319626064",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"description\": \"Storage Deposit\",\r\n\"discountAmount\": 10,\r\n\"dueAt\": \"2018-05-29 00:00:00\",\r\n\"grossAmount\": 30,\r\n\"isPaid\": false,\r\n\"netAmount\": 30,\r\n\"isAmountReserved\" : true,\r\n\"oneoffChargeTypeId\": 3,\r\n\"orderId\":3000\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}financialInfo/order?token={{token}}\n",
+							"host": [
+								"{{URL}}financialInfo"
+							],
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "One-off Charges",
+			"description": "",
+			"item": [
+				{
+					"name": "One-off Charges",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d3ad131-4a2e-4536-9360-e2f543a1556c",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Identifier should not be empty\"] = jsonData.responseBody.identifier !== \"\";",
+									"tests[\"Type should not be empty\"] = jsonData.responseBody.type !== \"\";",
+									"tests[\"Charges Against should not be empty\"] = jsonData.responseBody.chargeAgainst !== \"\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}oneoffCharges/types?token={{token}}\n",
+							"host": [
+								"{{URL}}oneoffCharges"
+							],
+							"path": [
+								"types"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Promotions",
+			"description": "",
+			"item": [
+				{
+					"name": "Promotions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24e7acb9-3efb-47f2-b53f-c510f8209d3d",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Id should not be empty\"] = jsonData.responseBody.id !== \"\";",
+									"tests[\"Identifier should not be empty\"] = jsonData.responseBody.identifier !== \"\";",
+									"tests[\"Description should not be empty\"] = jsonData.responseBody.description !== \"\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}promotions?token={{token}}\n",
+							"host": [
+								"{{URL}}promotions"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messaging",
+			"description": "",
+			"item": [
+				{
+					"name": "Send Slack Message For Active Subscriptions With No Assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "280fdf36-46d3-4c26-a9c5-78a5ed7d0eeb",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}messaging/sendSlackMessageForActiveSubscriptionsWithNoAssets?token={{token}}\n",
+							"host": [
+								"{{URL}}messaging"
+							],
+							"path": [
+								"sendSlackMessageForActiveSubscriptionsWithNoAssets"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Slack Message For Halt Subscriptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c8a8168-80f7-48b8-986c-146315a9872e",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}messaging/sendSlackMessageForHaltSubscriptions?token={{token}}\n",
+							"host": [
+								"{{URL}}messaging"
+							],
+							"path": [
+								"sendSlackMessageForHaltSubscriptions"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Zendesk",
+			"description": "",
+			"item": [
+				{
+					"name": "Create ZenDesk Ticket on Order and Payment Submission",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c9531ce-b625-4b9d-99f3-0805c2a0538d",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}customerSupport/orderSubmission?bookedTimeSlotId=1130&token={{token}}",
+							"host": [
+								"{{URL}}customerSupport"
+							],
+							"path": [
+								"orderSubmission"
+							],
+							"query": [
+								{
+									"key": "bookedTimeSlotId",
+									"value": "1130"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create ZenDesk ticket on Contact Us form submission",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7b4d949-4445-4027-9523-308d5597ee83",
+								"type": "text/javascript",
+								"exec": [
+									"  pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"AROMA\",\n  \"lastName\": \"GUL\",\n  \"email\": \"aroma.gul@venturedive.com\",\n  \"phoneNumber\": \"03345678892\",\n  \"natureOfEnquiry\": \"This is Type of Enquiry\",\n  \"message\": \"hello message\"\n}\n\n"
+						},
+						"url": {
+							"raw": "{{URL}}customerSupport/contactUs?token={{token}}\n",
+							"host": [
+								"{{URL}}customerSupport"
+							],
+							"path": [
+								"contactUs"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Zendesk ticket on booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3011105f-7aab-4ef7-94bc-f3855a52b25e",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" :1\n}"
+						},
+						"url": {
+							"raw": "{{URL}}customerSupport/booking?id=1\n",
+							"host": [
+								"{{URL}}customerSupport"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Email Logs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "49e26860-da48-4ebb-b204-0905a82dab4c",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 6, \"No Record Found.\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}customerSupport/userEmailLogs?userId=1&token={{token}}\n",
+							"host": [
+								"{{URL}}customerSupport"
+							],
+							"path": [
+								"userEmailLogs"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pre-arrival Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9b5a14b8-2b06-4f80-a3e7-f97ef14ed521",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}customerSupport/preArrivalInfo?bookedTimeSlotId=1&token={{token}}\n",
+							"host": [
+								"{{URL}}customerSupport"
+							],
+							"path": [
+								"preArrivalInfo"
+							],
+							"query": [
+								{
+									"key": "bookedTimeSlotId",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pick up details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "54c4ae17-b6cf-405e-bb14-6ab6780b562c",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// pm.environment.set(\"User_id\", jsonData.responseBody.userId);",
+									"// console.log(jsonData.responseBody.userId);",
+									"// let jsonData = pm.response.json()",
+									"",
+									"",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0af56fb5-07fb-4ba7-8274-d3d2ab2e0150",
+								"type": "text/javascript",
+								"exec": [
+									"// var rand = Math.floor((Math.random() * 1000) + 10);",
+									"// var id = \"id\" + rand;",
+									"// pm.environment.set(\"Variable\", id);",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n            \"userId\": \"17\",\r\n            \"itemDescription\": \"desc\",\r\n            \"address\": \"1a rowallan road, London\",\r\n            \"timeDescription\": \"11:22\",\r\n            \"phoneNumber\":\"033452722293\",\r\n            \"needPackingAssistance\": false\r\n        }"
+						},
+						"url": {
+							"raw": "{{URL}}customerSupport/pickUp?token={{token}}\n",
+							"host": [
+								"{{URL}}customerSupport"
+							],
+							"path": [
+								"pickUp"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Voucher Code Flow",
+			"description": "",
+			"item": [
+				{
+					"name": "Voucher Code Validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e56a6ff7-0db5-44e9-8122-8cd3bdd08c20",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var data1 = [false, 1, \"Success\"];",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Status Code is \" + data1[1]] = jsonData.responseHeader.statusCode === data1[1];",
+									"tests[\"Message is correct\"] = jsonData.responseHeader.message === data1[2];",
+									"tests[\"isError is \" + data1[0]] = jsonData.responseHeader.isError === data1[0];",
+									"",
+									"tests[\"Is Valid should not be empty\"] = jsonData.responseBody.isValid !== \"\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}voucherCode/validate?voucherCode=VOUCHER_20_POUND&storageUnitId=12&token={{token}}\n",
+							"host": [
+								"{{URL}}voucherCode"
+							],
+							"path": [
+								"validate"
+							],
+							"query": [
+								{
+									"key": "voucherCode",
+									"value": "VOUCHER_20_POUND"
+								},
+								{
+									"key": "storageUnitId",
+									"value": "12"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
